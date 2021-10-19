@@ -112,20 +112,25 @@ function isSumEvenOrOdd(twoNumSum){
 /////////////////////////////////////////////////////////////////////////////
 
 
-
+//conservo il valore della CPU, generato dalla funzione, in una variabile
+let cpuNum = generateNumCPU();
+console.log(cpuNum);
 //al click usa la funzione checkEven e restitusci il numero dato in input e controllato tramite la funzione definita precedentemente.
 EvenBtn.addEventListener('click', function(){
     //conservo il valore dell'utente in una variabile
     userInput = checkEven(userInput);
 
-    //conservo il valore della CPU in una variabile
-    const cpuNum = generateNumCPU();
+    //se il numero generato dalla cpu è pari, ricalcola fino a quando non esce un numero dispari
+    if (cpuNum % 2 == 0){
+        console.log('PARI');
+        cpuNum = generateNumCPU(); //BUG: genera lo stesso numero se non refreshi (?)
+    }
+        /* console.log(cpuNum);
+        console.log(userInput); */
 
-    console.log(cpuNum);
-    console.log(userInput);
     //sommo i numeri
     const sum = cpuNum + userInput;
-    console.log(sum);
+        // console.log(sum);
     
     //richiamo la funzione per controllare se la somma è pari o dispari, se è pari l'utente ha vinto
     if (isSumEvenOrOdd == 'even'){
@@ -144,16 +149,19 @@ EvenBtn.addEventListener('click', function(){
 OddBtn.addEventListener('click', function(){
     //conservo il valore dell'utente in una variabile
     userInput = checkOdd(userInput);
-        
-    //conservo il valore della CPU in una variabile
-    const cpuNum = generateNumCPU();
 
-    console.log(cpuNum);
-    console.log(userInput);
+    //se il numero generato dalla cpu è pari, ricalcola fino a quando non esce un numero dispari
+    if (cpuNum % 2 !== 0){
+        console.log('DISPARI');
+        cpuNum = generateNumCPU(); //BUG: genera lo stesso numero se non refreshi (?)
+    }
+        /* console.log(cpuNum);
+        console.log(userInput); */
+
     //sommo i numeri
     const sum = cpuNum + userInput;
-    console.log(sum);
-
+        // console.log(sum);
+    
     //richiamo la funzione per controllare se la somma è pari o dispari, se è pari l'utente ha vinto
     if (isSumEvenOrOdd == 'odd'){
         document.querySelector('.winner').innerHTML = 'Hai vinto!👏';
