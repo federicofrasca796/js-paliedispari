@@ -34,13 +34,18 @@ let userInput = 0;
 
 function checkEven(num_even){
     num_even = prompt('Scegli un numero pari compreso tra 1 e 5');
-    //controllo se il numero inserito è pari
-    if (num_even % 2 !== 0){
-        alert(`Ehi, hai scelto i numeri pari! 
+    //controllo che sia compreso tra 1 e 5
+    if (num_even >= 1 && num_even <= 5){
+        //controllo se il numero inserito è pari
+        if (num_even % 2 !== 0){
+            alert(`Ehi, hai scelto i numeri pari! 
 Se hai cambiato idea, premi il pulsante 'Dispari'.`);
-        num_even = 0;
+            num_even = 0;
+        }
+        return num_even;
+    } else {
+        alert("Dev'essere compreso tra 1 e 5!")
     }
-    return num_even;
 }
 /////////////////////////////////////////////////////////////////////////////
 
@@ -54,26 +59,29 @@ Se hai cambiato idea, premi il pulsante 'Dispari'.`);
 
  function checkOdd(num_odd){
     num_odd = prompt('Scegli un numero dispari compreso tra 1 e 5');
-    //controllo se il numero inserito è dispari
-    if (num_odd % 2 == 0){
-        alert(`Ehi, hai scelto i numeri dispari! 
+    if (num_odd >= 1 && num_odd <= 5){
+        //controllo se il numero inserito è dispari
+        if (num_odd % 2 == 0){
+            alert(`Ehi, hai scelto i numeri dispari! 
 Se hai cambiato idea, premi il pulsante 'Pari'.`);
-        num_odd = 0;
+            num_odd = 0;
+        }
+        return num_odd;
+    } else {
+        alert("Dev'essere compreso tra 1 e 5!")
     }
-    return num_odd;
 }
 /////////////////////////////////////////////////////////////////////////////
 
 //al click usa la funzione checkEven e restitusci il numero dato in input se è pari
 EvenBtn.addEventListener('click', function(){
     userInput = checkEven(userInput);
-    console.log(userInput);
+    // console.log(userInput);
 });
 
 //al click usa la funzione checkEven e restitusci il numero dato in input se è dispari
 OddBtn.addEventListener('click', function(){
     userInput = checkOdd(userInput);
-    console.log(userInput);
+    // console.log(userInput);
 });
 
-// console.log(userInput);
