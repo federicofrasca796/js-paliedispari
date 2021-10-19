@@ -9,7 +9,7 @@
 - if
 */
 
-//chiedo all'utent un nome palindromo
+//chiedo all'utente un nome palindromo
 const paliWord = prompt('Prova ad inserire una parola palindroma');
 
 //creo la funzione che verificherà la condizione richiesta.
