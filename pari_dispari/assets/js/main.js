@@ -73,15 +73,30 @@ Se hai cambiato idea, premi il pulsante 'Pari'.`);
 }
 /////////////////////////////////////////////////////////////////////////////
 
-//al click usa la funzione checkEven e restitusci il numero dato in input se è pari
+//creo una funzione che generi un numero random compreso tra 1 e 5 da assegnare al PC. Come da traccia.
+function generateNumCPU(){
+    let randNum = Math.ceil(Math.random() * 5);
+    return randNum;
+}
+
+//conservo il valore della CPU in una variabile
+const cpuNum = generateNumCPU();
+console.log(cpuNum);
+
+//al click usa la funzione checkEven e restitusci il numero dato in input e controllato tramite la funzione definita precedentemente.
 EvenBtn.addEventListener('click', function(){
     userInput = checkEven(userInput);
-    // console.log(userInput);
+    console.log(userInput);
+    //sommo i numeri
+    const sum = parseInt(cpuNum) + parseInt(userInput);
+    console.log(sum);
 });
 
-//al click usa la funzione checkEven e restitusci il numero dato in input se è dispari
+//al click usa la funzione checkEven e restitusci il numero dato in input e controllato tramite la funzione definita precedentemente.
 OddBtn.addEventListener('click', function(){
     userInput = checkOdd(userInput);
-    // console.log(userInput);
+    console.log(userInput);
+    //sommo i numeri
+    const sum = parseInt(cpuNum) + parseInt(userInput);
+    console.log(sum);
 });
-
