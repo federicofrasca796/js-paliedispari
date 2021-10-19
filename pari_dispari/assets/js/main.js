@@ -112,19 +112,30 @@ function isSumEvenOrOdd(twoNumSum){
 /////////////////////////////////////////////////////////////////////////////
 
 
+
+
+
+
 //conservo il valore della CPU, generato dalla funzione, in una variabile
 let cpuNum = generateNumCPU();
-console.log(cpuNum);
+    console.log(cpuNum);
+
 //al click usa la funzione checkEven e restitusci il numero dato in input e controllato tramite la funzione definita precedentemente.
 EvenBtn.addEventListener('click', function(){
     //conservo il valore dell'utente in una variabile
     userInput = checkEven(userInput);
 
     //se il numero generato dalla cpu è pari, ricalcola fino a quando non esce un numero dispari
-    if (cpuNum % 2 == 0){
+    while (cpuNum % 2 == 0){
+        console.log('ANCORA PARI! RIGENERA CPU');
+        cpuNum = generateNumCPU();
+
+        cpuNum % 2 !== 0;
+    }
+    /* if (cpuNum % 2 == 0){
         console.log('PARI');
         cpuNum = generateNumCPU(); //BUG: genera lo stesso numero se non refreshi (?)
-    }
+    } */
         /* console.log(cpuNum);
         console.log(userInput); */
 
@@ -151,9 +162,11 @@ OddBtn.addEventListener('click', function(){
     userInput = checkOdd(userInput);
 
     //se il numero generato dalla cpu è pari, ricalcola fino a quando non esce un numero dispari
-    if (cpuNum % 2 !== 0){
-        console.log('DISPARI');
-        cpuNum = generateNumCPU(); //BUG: genera lo stesso numero se non refreshi (?)
+    while (cpuNum % 2 !== 0){
+        console.log('ANCORA DISPARI! RIGENERA CPU');
+        cpuNum = generateNumCPU();
+
+        cpuNum % 2 !== 0;
     }
         /* console.log(cpuNum);
         console.log(userInput); */
